@@ -61,197 +61,130 @@ After you're finished please remove all the comments and instructions!
 ```
 متغيرات الفئة (Class Variables): تعريف ثلاث قوائم ثابتة (static)، واحدة لكل من الموظفين (employees)، والأقسام (departments)، والرواتب (salaries). هذه القوائم ستُستخدم لتخزين البيانات المُدارة بواسطة النظام
 
-<!-- Features -->
+``    public static void main(String[] args) {``
 
-### Key Features <a name="key-features"></a>
+الطريقة الرئيسية (Main Method): هذه هي نقطة الدخول للبرنامج. عندما يتم تشغيل البرنامج، يتم تنفيذ هذه الطريقة.
 
-> Describe features:
-
-- **Can Calculate math oprations**
-- **Can Calculate complex maths**
-- **Has about page**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Here you can find my math calculator demo
-
-- [Live Demo Link](https://google.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-
-## 💻 Getting Started <a name="getting-started"></a>
-
-> To get a local copy up and running follow these simple example steps.
-
-- clone the project from GitHub: [@sajjadrajaee](https://github.com/sajjadrajaee/mag-calculator)
-- run the code on a text editor
-
-### Prerequisites
-
-In order to run this project you need:
-No pre request.
-<!--
-Example command:
-
-```sh
- gem install rails
+```        employees = FileManager.readEmployees();
+        departments = FileManager.readDepartments();
+        salaries = FileManager.readSalaries();
 ```
- -->
+قراءة البيانات (Data Reading): يتم قراءة بيانات الموظفين والأقسام والرواتب من مصدر البيانات (مثل ملفات) باستخدام طرق من فئة FileManager.
 
-### Setup
+``        Scanner scanner = new Scanner(System.in);``
 
+إنشاء كائن Scanner (Scanner Object): يتم إنشاء كائن Scanner لقراءة المدخلات من المستخدم عبر لوحة المفاتيح.
 
-[] clone the project from this [link](https://github.com/sajjadrajaee/mag-calculator).
-   example: git clone https://github.com/sajjadrajaee/mag-calculator
-[] use **``npm init -y  ``** to initialize the npm
-[] use **``npm install ``** to install all neccerry dependencies
-[] use **``npm start ``**to start the project and see live.
-<!--
-Example commands:
+``        while (true) {``
 
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+حلقات التكرار (Loop): حلقة while تبدأ هنا وتستمر إلى أجل غير مسمى حتى يتم تنفيذ أمر الخروج (System.exit(0)).
+
+```            System.out.println("Menu:");
+            System.out.println("1. View Employees");
+            System.out.println("2. View Departments");
+            System.out.println("3. View Salaries");
+            System.out.println("4. Add Employee");
+            System.out.println("5. Add Department");
+            System.out.println("6. Add Salary");
+            System.out.println("7. Search Employee by ID");
+            System.out.println("8. Search Department by ID");
+            System.out.println("9. Search Salary by Employee ID");
+            System.out.println("10. Exit");
+            System.out.print("Enter choice: ");
 ```
---->
+عرض القائمة (Menu Display): يتم عرض قائمة من الخيارات على الشاشة ليختار المستخدم من بينها.
 
-### Install
-
-[] clone the project from this [link](https://github.com/sajjadrajaee/mag-calculator).
-
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
+```            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
 ```
---->
 
-### Usage
+قراءة اختيار المستخدم (User Input): يتم قراءة اختيار المستخدم وتخزينه في متغير choice. ثم يتم استهلاك السطر الجديد (newline) المتبقي في دفق الإدخال.
 
-To run the project, execute the following command:
-[] use **``npm install ``** to install all neccerry dependencies
-[] use **``npm start ``**to start the project and see live.
+``            switch (choice) {``
 
-<!--
-Example command:
+بيان التبديل (Switch Statement): يبدأ هنا بيان التبديل الذي يتعامل مع اختيار المستخدم.
 
-```sh
-  rails server
+   ```             case 1:
+                    viewEmployees();
+                    break;
 ```
---->
 
-### Run tests
+عرض الموظفين (View Employees): إذا كان اختيار المستخدم 1، يتم استدعاء طريقة viewEmployees() لعرض قائمة الموظفين.
 
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
+```                case 2:
+                    viewDepartments();
+                    break;
 ```
---->
 
-### Deployment
+عرض الأقسام (View Departments): إذا كان اختيار المستخدم 2، يتم استدعاء طريقة viewDepartments() لعرض قائمة الأقسام.
 
-You can deploy this project using:
 
-<!--
-Example:
+```                case 3:
+                    viewSalaries();
+                    break;
+```
+عرض الرواتب (View Salaries): إذا كان اختيار المستخدم 3، يتم استدعاء طريقة viewSalaries() لعرض قائمة الرواتب.
 
-```sh
+```                case 4:
+                    addEmployee(scanner);
+                    break;
+```
+
+إضافة موظف (Add Employee): إذا كان اختيار المستخدم 4، يتم استدعاء طريقة addEmployee(scanner) لإضافة موظف جديد، مع تمرير كائن Scanner لقراءة بيانات الموظف الجديد.
+
+```                case 5:
+                    addDepartment(scanner);
+                    break;
+```
+
+إضافة قسم (Add Department): إذا كان اختيار المستخدم 5، يتم استدعاء طريقة addDepartment(scanner) لإضافة قسم جديد، مع تمرير كائن Scanner لقراءة بيانات القسم الجديد.
+
+```                case 6:
+                    addSalary(scanner);
+                    break;
+```
+إضافة راتب (Add Salary): إذا كان اختيار المستخدم 6، يتم استدعاء طريقة addSalary(scanner) لإضافة راتب جديد، مع تمرير كائن Scanner لقراءة بيانات الراتب الجديد.
 
 ```
- -->
+إ                case 7:
+                    searchEmployeeById(scanner);
+                    break;
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+```
 
-<!-- AUTHORS -->
+البحث عن موظف بالمعرف (Search Employee by ID): إذا كان اختيار المستخدم 7، يتم استدعاء طريقة searchEmployeeById(scanner) للبحث عن موظف باستخدام معرفه، مع تمرير كائن Scanner لقراءة المعرف.
 
-## 👥 Authors <a name="authors"></a>
+```                case 8:
+                    searchDepartmentById(scanner);
+                    break;
+```
 
-> Mention all of the collaborators of this project.
+البحث عن قسم بالمعرف (Search Department by ID): إذا كان اختيار المستخدم 8، يتم استدعاء طريقة searchDepartmentById(scanner) للبحث عن قسم باستخدام معرفه، مع تمرير كائن Scanner لقراءة المعرف.
 
-👤 **Author1**
+```                case 9:
+                    searchSalaryByEmployeeId(scanner);
+                    break;
+```
+البحث عن راتب باستخدام معرف الموظف (Search Salary by Employee ID): إذا كان اختيار المستخدم 9، يتم استدعاء طريقة searchSalaryByEmployeeId(scanner) للبحث عن راتب باستخدام معرف الموظف، مع تمرير كائن Scanner لقراءة المعرف.
 
-- GitHub: [@githubhandle](https://github.com/sajjadrajaee)
-- Twitter: [@twitterhandle](https://twitter.com/sajjadrajaee)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/sajjadrajaee)
+```
+                case 10:
+                    FileManager.writeEmployees(employees);
+                    FileManager.writeDepartments(departments);
+                    FileManager.writeSalaries(salaries);
+                    System.exit(0);
+                    break;
+```
 
+حفظ البيانات وإنهاء البرنامج (Save Data and Exit): إذا كان اختيار المستخدم 10، يتم حفظ البيانات الحالية للموظفين والأقسام والرواتب باستخدام طرق FileManager، ثم يتم إنهاء البرنامج باستخدام System.exit(0).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+```                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+    }
+}
+```
 
-<!-- FUTURE FEATURES -->
+التعامل مع الاختيارات غير الصالحة (Invalid Choice): إذا كان اختيار المستخدم لا يتطابق مع أي حالة من الحالات المذكورة، يتم طباعة رسالة تفيد بأن الاختيار غير صالح.
 
-## 🔭 Future Features <a name="future-features"></a>
-
->  1 feature you will add to the project.
-
-- [ ] **Add integral to the project**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## 🤝 Contributing <a name="contributing"></a>
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- SUPPORT -->
-
-## ⭐️ Show your support <a name="support"></a>
-
-> Write a message to encourage readers to support your project
-
-If you like this project...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
-
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **how can I run this project?**
-
-[] use **``npm install ``** to install all neccerry dependencies
-[] use **``npm start ``**to start the project and see live.
-
-- **what is this project about?**
-
-  - this is just a simple calculator
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## 📝 License <a name="license"></a>
-
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
