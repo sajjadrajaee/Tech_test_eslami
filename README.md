@@ -40,13 +40,17 @@ After you're finished please remove all the comments and instructions!
 
 >  Java 
 
-**``package com.mycompany.salarysystem; ``**
+``package com.mycompany.salarysystem; ``
+
 الحزمة (Package): يتم استخدام هذا السطر لتعريف الحزمة التي تنتمي إليها الشيفرة. الحزم تستخدم لتنظيم الفئات (classes) والواجهات (interfaces) بطريقة منظمة.
 
-**``import java.util.List; ``**
-**``import java.util.Scanner; ``**
+``import java.util.List; ``
+``import java.util.Scanner; ``
+
 الاستيراد (Import): يستورد هذا السطر واجهة List وفئة Scanner من مكتبة Java القياسية. List تُستخدم لإدارة قوائم من العناصر، وScanner تُستخدم لقراءة المدخلات من المستخدم.
-**``public class SalarySystem { ``**
+
+``public class SalarySystem { ``
+
 تعريف الفئة (Class Definition): يبدأ تعريف الفئة SalarySystem. هذه الفئة تحتوي على كافة المنطق البرمجي لنظام الرواتب
 
 ```
