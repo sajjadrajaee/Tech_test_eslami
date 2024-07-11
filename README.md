@@ -404,3 +404,277 @@ if (!found) {
 يتم تحديث found إلى true عند العثور على راتب مطابق.
 بعد انتهاء الحلقة، إذا كان found لا يزال false، يتم طباعة رسالة تفيد بعدم العثور على سجلات الرواتب.
 
+
+
+## تعريف الفئة Department
+
+```package com.mycompany.salarysystem;
+
+public class Department {
+    private String id;
+    private String name;
+```
+تعريف الفئة (Class Definition): public class Department تعرف فئة عامة باسم Department داخل الحزمة com.mycompany.salarysystem.
+المتغيرات الخاصة (Private Variables): private String id و private String name هما متغيران خاصان يمثلان معرف القسم واسم القسم على التوالي.
+
+    ```    public Department(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+```
+المُنشئ (Constructor): public Department(String id, String name) هو مُنشئ للفئة Department يأخذ معرف القسم واسم القسم كمعاملات ويعينها للمتغيرات الخاصة.
+
+أدوات الحصول (Getters)
+```    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+```    أداة الحصول على المعرف (Getter for ID): public String getId() هي طريقة عامة تُستخدم للحصول على قيمة المعرف id.
+    أداة الحصول على الاسم (Getter for Name): public String getName() هي طريقة عامة تُستخدم للحصول على قيمة الاسم name.
+
+أدوات التعيين (Setters)
+    ```    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+```
+
+أداة تعيين المعرف (Setter for ID): public void setId(String id) هي طريقة عامة تُستخدم لتعيين قيمة المعرف id.
+أداة تعيين الاسم (Setter for Name): public void setName(String name) هي طريقة عامة تُستخدم لتعيين قيمة الاسم name.
+
+تجاوز طريقة toString
+
+
+```    @Override
+    public String toString() {
+        return "Department{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+```
+
+تجاوز طريقة toString (Override toString Method): @Override يشير إلى أن هذه الطريقة تعيد تعريف طريقة toString من الفئة Object.
+طريقة toString (toString Method): public String toString() هي طريقة تُعيد تمثيل نصي لكائن القسم، مما يجعل من السهل عرض معلومات القسم.
+
+ملخص
+
+فئة Department هي جزء من نظام إدارة الرواتب وتستخدم لتمثيل الأقسام داخل الشركة. تحتوي الفئة على معرف القسم واسم القسم كمتغيرات خاصة، وتوفر أدوات الحصول والتعيين لهذين المتغيرين. كما تحتوي على مُنشئ لتعيين القيم الأولية لهذه المتغيرات وطريقة toString لتوفير تمثيل نصي للكائن، مما يسهل عرض معلومات القسم.
+
+##  توضيح الكود الخاص بفئة Employee 
+
+الكود التالي يعرف فئة Employee في لغة Java، وهي تمثل الموظفين في نظام إدارة الرواتب. إليك الشرح التفصيلي لكل جزء من هذا الكود:
+تعريف الفئة Employee
+
+```package com.mycompany.salarysystem;
+
+public class Employee {
+    private String id;
+    private String name;
+    private String position;
+    private String hireDate;
+    private double baseSalary;
+    private int departmentId;
+```
+تعريف الفئة (Class Definition): public class Employee تعرف فئة عامة باسم Employee داخل الحزمة com.mycompany.salarysystem.
+المتغيرات الخاصة (Private Variables): private String id، private String name، private String position، private String hireDate، private double baseSalary، و private int departmentId هي متغيرات خاصة تمثل معرف الموظف، اسم الموظف، منصب الموظف، تاريخ التوظيف، الراتب الأساسي، ومعرف القسم على التوالي.
+
+المُنشئ (Constructor)
+```    public Employee(String id, String name, String position, String hireDate, double baseSalary, int departmentId) {
+        this.id = id;
+        this.name = name;
+        this.position = position;
+        this.hireDate = hireDate;
+        this.baseSalary = baseSalary;
+        this.departmentId = departmentId;
+    }
+```
+
+
+المُنشئ (Constructor): public Employee(String id, String name, String position, String hireDate, double baseSalary, int departmentId) هو مُنشئ للفئة Employee يأخذ معرف الموظف، اسم الموظف، منصب الموظف، تاريخ التوظيف، الراتب الأساسي، ومعرف القسم كمعاملات 
+ويعينها للمتغيرات الخاصة.
+```    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public String getHireDate() {
+        return hireDate;
+    }
+
+    public double getBaseSalary() {
+        return baseSalary;
+    }
+
+    public int getDepartmentId() {
+        return departmentId;
+    }
+```
+
+أداة الحصول على المعرف (Getter for ID): public String getId() هي طريقة عامة تُستخدم للحصول على قيمة المعرف id.
+أداة الحصول على الاسم (Getter for Name): public String getName() هي طريقة عامة تُستخدم للحصول على قيمة الاسم name.
+أداة الحصول على المنصب (Getter for Position): public String getPosition() هي طريقة عامة تُستخدم للحصول على قيمة المنصب position.
+أداة الحصول على تاريخ التوظيف (Getter for Hire Date): public String getHireDate() هي طريقة عامة تُستخدم للحصول على قيمة تاريخ التوظيف hireDate.
+أداة الحصول على الراتب الأساسي (Getter for Base Salary): public double getBaseSalary() هي طريقة عامة تُستخدم للحصول على قيمة الراتب الأساسي baseSalary.
+أداة الحصول على معرف القسم (Getter for Department ID): public int getDepartmentId() هي طريقة عامة تُستخدم للحصول على قيمة معرف القسم departmentId.
+
+
+أدوات التعيين (Setters)
+```    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setHireDate(String hireDate) {
+        this.hireDate = hireDate;
+    }
+
+    public void setBaseSalary(double baseSalary) {
+        this.baseSalary = baseSalary;
+    }
+
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
+    }
+```
+
+أداة تعيين المعرف (Setter for ID): public void setId(String id) هي طريقة عامة تُستخدم لتعيين قيمة المعرف id.
+أداة تعيين الاسم (Setter for Name): public void setName(String name) هي طريقة عامة تُستخدم لتعيين قيمة الاسم name.
+أداة تعيين المنصب (Setter for Position): public void setPosition(String position) هي طريقة عامة تُستخدم لتعيين قيمة المنصب position.
+أداة تعيين تاريخ التوظيف (Setter for Hire Date): public void setHireDate(String hireDate) هي طريقة عامة تُستخدم لتعيين قيمة تاريخ التوظيف hireDate.
+أداة تعيين الراتب الأساسي (Setter for Base Salary): public void setBaseSalary(double baseSalary) هي طريقة عامة تُستخدم لتعيين قيمة الراتب الأساسي baseSalary.
+أداة تعيين معرف القسم (Setter for Department ID): public void setDepartmentId(int departmentId) هي طريقة عامة تُستخدم لتعيين قيمة معرف القسم departmentId
+
+
+تجاوز طريقة toString
+
+```    @Override
+    public String toString() {
+        return "Employee{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", position='" + position + '\'' +
+                ", hireDate='" + hire
+
+```
+
+
+تجاوز طريقة toString (Override toString Method): @Override يشير إلى أن هذه الطريقة تعيد تعريف طريقة toString من الفئة Object.
+طريقة toString (toString Method): public String toString() هي طريقة تُعيد تمثيل نصي لكائن الموظف، مما يجعل من السهل عرض معلومات الموظف.
+
+
+ملخص
+
+فئة Employee هي جزء من نظام إدارة الرواتب وتستخدم لتمثيل الموظفين داخل الشركة. تحتوي الفئة على معرف الموظف، اسم الموظف، منصب الموظف، تاريخ التوظيف، الراتب الأساسي، ومعرف القسم كمتغيرات خاصة. وتوفر أدوات الحصول والتعيين لهؤلاء المتغيرين. كما تحتوي على مُنشئ لتعيين القيم الأولية لهذه المتغيرات وطريقة toString لتوفير تمثيل نصي للكائن، مما يسهل عرض معلومات الموظف.
+
+
+## توضيح الكود الخاص بفئة Salary
+
+الكود التالي يعرف فئة Salary في لغة Java، وهي تمثل الرواتب في نظام إدارة الرواتب. إليك الشرح التفصيلي لكل جزء من هذا الكود:
+
+```package com.mycompany.salarysystem;
+
+public class Salary {
+    private String employeeId;
+    private String month;
+    private double amount;
+    private double bonuses;
+```
+تعريف الفئة (Class Definition): public class Salary تعرف فئة عامة باسم Salary داخل الحزمة com.mycompany.salarysystem.
+المتغيرات الخاصة (Private Variables): المتغيرات private String employeeId, private String month, private double amount, و private double bonuses هي متغيرات خاصة تمثل معرف الموظف، الشهر، المبلغ الأساسي، والمكافآت على التوالي.
+
+المُنشئ (Constructor)
+```    public Salary(String employeeId, String month, double amount, double bonuses) {
+        this.employeeId = employeeId;
+        this.month = month;
+        this.amount = amount;
+        this.bonuses = bonuses;
+    }
+```
+
+المُنشئ (Constructor): public Salary(String employeeId, String month, double amount, double bonuses) هو مُنشئ للفئة Salary يأخذ معرف الموظف، الشهر، المبلغ الأساسي، والمكافآت كمعاملات ويعينها للمتغيرات الخاصة.
+```
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public double getBonuses() {
+        return bonuses;
+    }
+```\
+أداة الحصول على معرف الموظف (Getter for Employee ID): public String getEmployeeId() هي طريقة عامة تُستخدم للحصول على قيمة معرف الموظف employeeId.
+أداة الحصول على الشهر (Getter for Month): public String getMonth() هي طريقة عامة تُستخدم للحصول على قيمة الشهر month.
+أداة الحصول على المبلغ الأساسي (Getter for Amount): public double getAmount() هي طريقة عامة تُستخدم للحصول على قيمة المبلغ الأساسي amount.
+أداة الحصول على المكافآت (Getter for Bonuses): public double getBonuses() هي طريقة عامة تُستخدم للحصول على قيمة المكافآت bonuses.
+
+```    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setBonuses(double bonuses) {
+        this.bonuses = bonuses;
+    }
+```
+
+أداة تعيين معرف الموظف (Setter for Employee ID): public void setEmployeeId(String employeeId) هي طريقة عامة تُستخدم لتعيين قيمة معرف الموظف employeeId.
+أداة تعيين الشهر (Setter for Month): public void setMonth(String month) هي طريقة عامة تُستخدم لتعيين قيمة الشهر month.
+أداة تعيين المبلغ الأساسي (Setter for Amount): public void setAmount(double amount) هي طريقة عامة تُستخدم لتعيين قيمة المبلغ الأساسي amount.
+أداة تعيين المكافآت (Setter for Bonuses): public void setBonuses(double bonuses) هي طريقة عامة تُستخدم لتعيين قيمة المكافآت bonuses.
+
+تجاوز طريقة toString
+
+```    @Override
+    public String toString() {
+        return "Salary{" +
+                "employeeId='" + employeeId + '\'' +
+                ", month='" + month + '\'' +
+                ", amount=" + amount +
+                ", bonuses=" + bonuses +
+                '}';
+    }
+}
+```
+
+تجاوز طريقة toString (Override toString Method): @Override يشير إلى أن هذه الطريقة تعيد تعريف طريقة toString من الفئة Object.
+طريقة toString (toString Method): public String toString() هي طريقة تُعيد تمثيل نصي لكائن الراتب، مما يجعل من السهل عرض معلومات الراتب.
+
+ملخص
+
+فئة Salary هي جزء من نظام إدارة الرواتب وتستخدم لتمثيل رواتب الموظفين داخل الشركة. تحتوي الفئة على معرف الموظف، الشهر، المبلغ الأساسي، والمكافآت كمتغيرات خاصة. وتوفر أدوات الحصول والتعيين لهؤلاء المتغيرين. كما تحتوي على مُنشئ لتعيين القيم الأولية لهذه المتغيرات وطريقة toString لتوفير تمثيل نصي للكائن، مما يسهل عرض معلومات الراتب.
